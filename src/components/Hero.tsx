@@ -1,6 +1,6 @@
 import { useState, type FormEvent, type ReactNode } from 'react'
 import { motion } from 'motion/react'
-import { ChevronDown } from 'lucide-react'
+import { ArrowRight, ChevronDown } from 'lucide-react'
 import { CONTACT, HERO, VIDEOS } from '../constants'
 import Video from './Video'
 
@@ -42,7 +42,7 @@ function SelectField({
   )
 }
 
-/** Rounded video hero: giant headline, copy, and a booking bar with dropdowns. */
+/** Rounded video hero: headline, description, two CTAs, and a booking bar. */
 export default function Hero() {
   const [date, setDate] = useState('')
   const [visitors, setVisitors] = useState<string>(VISITOR_OPTIONS[0])
@@ -70,18 +70,30 @@ export default function Hero() {
         <div className="mx-auto flex min-h-[680px] max-w-7xl flex-col px-5 pb-8 pt-28 sm:px-8 sm:pb-10 lg:min-h-[780px] lg:px-10 lg:pt-32">
           <motion.h1
             {...rise(0.1)}
-            className="text-center font-sans text-[4.2rem] font-light lowercase leading-[0.9] tracking-[-0.05em] drop-shadow-[0_6px_30px_rgba(0,0,0,0.25)] sm:text-[8rem] lg:text-[11rem] xl:text-[12.5rem]"
+            className="text-center font-sans text-[3.4rem] font-light leading-[0.9] tracking-[-0.04em] drop-shadow-[0_6px_30px_rgba(0,0,0,0.25)] sm:text-[6.5rem] lg:text-[9rem] xl:text-[10.5rem]"
           >
-            space to grow<span className="text-accent">.</span>
+            {HERO.headline.replace(/\.$/, '')}
+            <span className="text-accent">.</span>
           </motion.h1>
 
-          <motion.div {...rise(0.25)} className="mt-auto grid gap-6 pt-20 lg:grid-cols-2 lg:items-end">
-            <div>
-              <p className="max-w-md font-sans text-2xl font-light leading-snug sm:text-3xl">
-                Work, meet and grow in cozy &amp; spacious coworking.
-              </p>
+          <motion.div {...rise(0.25)} className="mt-auto flex flex-col gap-8 pt-16 lg:flex-row lg:items-end lg:justify-between">
+            <p className="max-w-xl font-sans text-xl font-light leading-snug sm:text-2xl">{HERO.description}</p>
+            <div className="flex flex-col gap-3 sm:flex-row lg:shrink-0">
+              <a
+                href={HERO.primaryCta.href}
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-paper px-7 py-4 text-sm font-medium text-ink transition-colors duration-300 hover:bg-accent hover:text-white"
+              >
+                {HERO.primaryCta.label}
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
+              </a>
+              <a
+                href={HERO.secondaryCta.href}
+                className="group inline-flex items-center justify-center gap-2 rounded-full border border-white/50 px-7 py-4 text-sm font-medium text-white transition-colors duration-300 hover:border-accent hover:text-accent"
+              >
+                {HERO.secondaryCta.label}
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
+              </a>
             </div>
-            <p className="max-w-md text-sm leading-relaxed text-white/80 lg:justify-self-end">{HERO.subtitle}</p>
           </motion.div>
 
           <motion.form
@@ -121,6 +133,14 @@ export default function Hero() {
               Book now
             </button>
           </motion.form>
+
+          <a
+            href="#intro"
+            className="mt-8 hidden flex-col items-center gap-2 self-center text-[11px] font-medium uppercase tracking-[0.2em] text-white/70 transition-colors hover:text-white sm:flex"
+          >
+            {HERO.scrollIndicator}
+            <ChevronDown className="h-4 w-4 animate-bounce" aria-hidden="true" />
+          </a>
         </div>
       </div>
     </section>

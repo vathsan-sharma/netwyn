@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
-import { Menu, X } from 'lucide-react'
-import { NAV_LINKS } from '../constants'
+import { Menu, Phone, X } from 'lucide-react'
+import { CONTACT, NAV_CTA, NAV_LINKS } from '../constants'
 import Logo from './Logo'
 
-/** Transparent over the hero card, then a white bar once the page scrolls. */
+/** Transparent over the hero, then a white bar once the page scrolls. */
 export default function Navbar() {
   const [solid, setSolid] = useState(false)
   const [open, setOpen] = useState(false)
@@ -35,6 +35,7 @@ export default function Navbar() {
       <nav aria-label="Primary" className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8 lg:h-20 lg:px-10">
         <a href="#top" onClick={close} aria-label="Netwyn Place home" className="shrink-0">
           <Logo wordmarkClassName="text-xs tracking-[0.2em] sm:text-sm" />
+          <span className="sr-only">Netwyn Place</span>
         </a>
 
         <ul className="hidden items-center gap-9 lg:flex">
@@ -49,12 +50,19 @@ export default function Navbar() {
 
         <div className="flex items-center gap-3">
           <a
-            href="#footer-contact"
+            href={CONTACT.phoneHref}
+            className={`hidden items-center gap-2 text-sm font-medium transition-opacity hover:opacity-70 xl:inline-flex`}
+          >
+            <Phone className="h-4 w-4" aria-hidden="true" />
+            {CONTACT.phone}
+          </a>
+          <a
+            href={NAV_CTA.href}
             className={`hidden rounded-full px-5 py-2.5 text-sm font-medium transition-colors duration-300 sm:inline-flex ${
               light ? 'bg-white text-ink hover:bg-accent hover:text-white' : 'bg-ink text-white hover:bg-accent'
             }`}
           >
-            Contact us
+            {NAV_CTA.label}
           </a>
           <button
             type="button"
@@ -83,20 +91,26 @@ export default function Navbar() {
           >
             <ul className="flex flex-col px-5 py-2 sm:px-8">
               {NAV_LINKS.map((link) => (
-                <li key={link.href} className="border-b border-line last:border-b-0">
+                <li key={link.href} className="border-b border-line">
                   <a href={link.href} onClick={close} className="block py-4 text-base font-medium">
                     {link.label}
                   </a>
                 </li>
               ))}
+              <li className="border-b border-line">
+                <a href={CONTACT.phoneHref} className="flex items-center gap-2 py-4 text-base font-medium">
+                  <Phone className="h-4 w-4" aria-hidden="true" />
+                  {CONTACT.phone}
+                </a>
+              </li>
             </ul>
             <div className="px-5 pb-6 sm:px-8">
               <a
-                href="#footer-contact"
+                href={NAV_CTA.href}
                 onClick={close}
                 className="flex w-full items-center justify-center rounded-full bg-ink py-4 text-sm font-medium text-white"
               >
-                Contact us
+                {NAV_CTA.label}
               </a>
             </div>
           </motion.div>
