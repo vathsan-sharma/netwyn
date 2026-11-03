@@ -1,6 +1,6 @@
 import { Quote } from 'lucide-react'
-import { TESTIMONIALS, type Testimonial } from '../constants'
-import { Reveal, SectionHeader } from './shared'
+import { TESTIMONIALS } from '../constants'
+import { Reveal } from './shared'
 
 function initials(name: string) {
   return name
@@ -11,55 +11,45 @@ function initials(name: string) {
     .toUpperCase()
 }
 
-function TestimonialCard({ item }: { item: Testimonial }) {
-  return (
-    <figure className="group flex h-full flex-col bg-paper p-8 transition-colors duration-300 hover:bg-mist sm:p-10">
-      <Quote className="h-8 w-8 text-accent" strokeWidth={1.5} aria-hidden="true" />
-      <blockquote className="mt-8 flex-1">
-        <p className="font-serif text-lg italic leading-relaxed text-ink sm:text-xl">
-          &ldquo;{item.quote}&rdquo;
-        </p>
-      </blockquote>
-      <figcaption className="mt-10 flex items-center gap-4 border-t border-line pt-6">
-        <span
-          aria-hidden="true"
-          className="flex h-12 w-12 shrink-0 items-center justify-center bg-ink font-sans text-sm font-black tracking-wide text-white transition-colors duration-300 group-hover:bg-accent"
-        >
-          {initials(item.name)}
-        </span>
-        <div>
-          <p className="font-sans text-sm font-black uppercase tracking-[0.05em] text-ink">
-            {item.name}
-          </p>
-          <p className="mt-1 text-sm text-muted">
-            {item.role}
-            {item.company && <span className="text-accent"> · {item.company}</span>}
-          </p>
-        </div>
-      </figcaption>
-    </figure>
-  )
-}
-
+/** Reviews: a horizontal, swipeable row of rounded review cards. */
 export default function Testimonials() {
   return (
-    <section id="reviews" className="border-b border-line bg-mist py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="reviews" className="pb-24 lg:pb-32">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         <Reveal>
-          <SectionHeader
-            eyebrow="REVIEWS"
-            title="CLIENT VOICES."
-            description="The greatest measure of our success isn't what we say. It's what our members, clients, and community have to say about their experience."
-          />
+          <h2 className="font-sans text-3xl font-normal tracking-[-0.02em] text-ink sm:text-4xl">
+            What members say<span className="text-accent">.</span>
+          </h2>
         </Reveal>
+      </div>
 
-        <div className="mt-16 grid gap-px border border-line bg-line md:grid-cols-3">
-          {TESTIMONIALS.map((item, index) => (
-            <Reveal key={item.name} delay={index * 0.1} className="flex">
-              <TestimonialCard item={item} />
-            </Reveal>
-          ))}
-        </div>
+      <div className="mt-12 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 [scrollbar-width:none] sm:px-8 lg:px-[max(2.5rem,calc((100vw-80rem)/2+2.5rem))] [&::-webkit-scrollbar]:hidden">
+        {TESTIMONIALS.map((item) => (
+          <figure
+            key={item.name}
+            className="m-0 flex w-[84%] shrink-0 snap-start flex-col rounded-3xl bg-paper p-8 sm:w-[46%] lg:w-[38%] lg:p-10"
+          >
+            <Quote className="h-7 w-7 text-accent" strokeWidth={1.5} aria-hidden="true" />
+            <blockquote className="mt-6 flex-1">
+              <p className="font-serif text-lg italic leading-relaxed text-ink sm:text-xl">&ldquo;{item.quote}&rdquo;</p>
+            </blockquote>
+            <figcaption className="mt-10 flex items-center gap-4 pt-2">
+              <span
+                aria-hidden="true"
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-ink text-xs font-medium tracking-wide text-white"
+              >
+                {initials(item.name)}
+              </span>
+              <div>
+                <p className="text-sm font-medium text-ink">{item.name}</p>
+                <p className="mt-0.5 text-xs text-muted">
+                  {item.role}
+                  {item.company && <span> · {item.company}</span>}
+                </p>
+              </div>
+            </figcaption>
+          </figure>
+        ))}
       </div>
     </section>
   )

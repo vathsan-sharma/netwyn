@@ -15,6 +15,20 @@ export function Headline({ text, className = '' }: { text: string; className?: s
   )
 }
 
+/** Centred section title with a short underline bar, as in the wireframe. */
+export function SectionTitle({ title, align = 'center' }: { title: string; align?: 'center' | 'left' }) {
+  const alignment = align === 'center' ? 'items-center text-center' : 'items-start text-left'
+  return (
+    <div className={`flex flex-col gap-5 ${alignment}`}>
+      <Headline text={title} className="text-3xl sm:text-5xl" />
+      <span className="flex gap-1.5" aria-hidden="true">
+        <span className="h-[3px] w-16 bg-accent" />
+        <span className="h-[3px] w-6 bg-line" />
+      </span>
+    </div>
+  )
+}
+
 /** Eyebrow label with a short orange accent bar. */
 export function Eyebrow({ children }: { children: ReactNode }) {
   return (

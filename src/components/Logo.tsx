@@ -8,6 +8,7 @@ export function LogoMark({ className = 'h-8 w-8' }: { className?: string }) {
   )
 }
 
+/** Wordmark inherits its colour from the surrounding element so it works on light and dark. */
 export default function Logo({
   className = '',
   wordmarkClassName = '',
@@ -16,7 +17,7 @@ export default function Logo({
   wordmarkClassName?: string
 }) {
   return (
-    <span className={`inline-flex items-center gap-3 text-ink ${className}`}>
+    <span className={`inline-flex items-center gap-3 ${className}`}>
       <LogoMark />
       <span className={`font-sans font-black uppercase tracking-[0.25em] ${wordmarkClassName}`}>
         NETWYN.PLACE

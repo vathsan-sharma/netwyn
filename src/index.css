@@ -1,13 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Outfit", "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Playfair Display", Georgia, serif;
 
   --color-paper: #FFFFFF;
+  --color-canvas: #F5F5F5;
   --color-mist: #FAFAFA;
   --color-accent: #FF5A00;
   --color-ink: #0F172A;
+  --color-charcoal: #242424;
   --color-muted: #475569;
   --color-subtle: #94A3B8;
   --color-line: #E2E8F0;
@@ -20,11 +22,11 @@
   }
 
   body {
-    @apply bg-paper font-sans text-ink antialiased;
+    @apply bg-canvas font-sans text-ink antialiased;
   }
 
   section[id] {
-    scroll-margin-top: 4.5rem;
+    scroll-margin-top: 5rem;
   }
 
   ::selection {

@@ -51,12 +51,93 @@ export const IMAGES = {
 /* ------------------------------------------------------------------ */
 
 export const NAV_LINKS = [
-  { label: 'ABOUT', href: '#about' },
-  { label: 'AMENITIES', href: '#amenities' },
-  { label: 'PLANS', href: '#pricing' },
-  { label: 'SHOWCASE', href: '#showcase' },
-  { label: 'REVIEWS', href: '#reviews' },
-  { label: 'CONTACT', href: '#contact' },
+  { label: 'Spaces', href: '#spaces' },
+  { label: 'Features', href: '#features' },
+  { label: 'Why us', href: '#why-us' },
+  { label: 'Reviews', href: '#reviews' },
+  { label: 'FAQ', href: '#faq' },
+] as const
+
+/* ------------------------------------------------------------------ */
+/* Wireframe sections                                                  */
+/* Copy below is drawn from the facts in this brief. Review before     */
+/* launch.                                                             */
+/* ------------------------------------------------------------------ */
+
+export const VIDEOS = {
+  hero: {
+    src: 'https://raw.githubusercontent.com/vathsan-sharma/netwyn-images/main/IMG_8746.mov',
+    poster: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1400&h=900',
+  },
+  features: {
+    src: 'https://raw.githubusercontent.com/vathsan-sharma/netwyn-images/main/IMG_8744.mov',
+    poster: 'https://picsum.photos/seed/netwyn-office/800/600',
+  },
+  cta: {
+    src: 'https://raw.githubusercontent.com/vathsan-sharma/netwyn-images/main/IMG_8818.mov',
+    poster: 'https://picsum.photos/seed/netwyn-boardroom/800/600',
+  },
+} as const
+
+export const HERO_BADGE = 'Scarborough, ON · Coworking & executive suites'
+
+export const FEATURES = [
+  {
+    title: '1 Gbps symmetric fibre',
+    description: 'Enterprise dedicated fibre with failover, so uploads are as fast as downloads.',
+  },
+  {
+    title: 'Light-filled workspace',
+    description: 'Floor-to-ceiling perimeter windows deliver natural daylight all day.',
+  },
+  {
+    title: 'Keyless smartphone access',
+    description: 'Open the door from your phone, with 24/7 security and on-site hospitality managers.',
+  },
+  {
+    title: '100+ free parking spots',
+    description: 'Parking right in front of the building entrance, with 401 access in two minutes.',
+  },
+] as const
+
+export const WHY_US = [
+  {
+    title: 'Dedicated bandwidth',
+    description: 'Fibre you do not share with neighbours, built for calls, uploads and client demos.',
+  },
+  {
+    title: 'Minutes from Hwy 401',
+    description: 'Easy to reach from across the East GTA, with free parking when you arrive.',
+  },
+  {
+    title: 'Flexible membership',
+    description: 'Day passes, hot desks, dedicated desks and private offices, so you can scale as you grow.',
+  },
+  {
+    title: 'Real hospitality',
+    description: 'Dedicated on-site managers and a coffee and tea bar, so the team can focus on work.',
+  },
+] as const
+
+export const FAQS = [
+  {
+    question: 'What are your hours?',
+    answer:
+      'Day guests can use the space Monday to Friday, 8:00 AM to 6:00 PM. Dedicated members have 24/7/365 access.',
+  },
+  {
+    question: 'Is parking free?',
+    answer: 'Yes. We have 100+ free dedicated parking spots right in front of the building entrance.',
+  },
+  {
+    question: 'Do you offer day passes?',
+    answer:
+      'Yes. An 8-hour day pass includes open hot desk access, fast Wi-Fi, complimentary coffee and tea, and free parking.',
+  },
+  {
+    question: 'How do I book a tour?',
+    answer: `Call ${CONTACT.phone} or email ${CONTACT.email} and we will arrange a time that suits you.`,
+  },
 ] as const
 
 /* ------------------------------------------------------------------ */
@@ -437,11 +518,11 @@ export const FOOTER = {
   description:
     'A premium coworking and collaborative office hub on Thornmount Drive, minutes from Highway 401 in Scarborough.',
   quickLinks: [
-    { label: 'About', href: '#about' },
-    { label: 'Amenities', href: '#amenities' },
-    { label: 'Plans', href: '#pricing' },
-    { label: 'Showcase', href: '#showcase' },
-    { label: 'Book a Tour', href: '#contact' },
+    { label: 'Features', href: '#features' },
+    { label: 'Why Us', href: '#why-us' },
+    { label: 'Reviews', href: '#reviews' },
+    { label: 'FAQ', href: '#faq' },
+    { label: 'Book a Tour', href: '#footer-contact' },
   ],
   spaces: ['Hot Desks', 'Dedicated Desks', 'Executive Suites', 'Boardrooms', 'Event Rentals'],
   hours: [

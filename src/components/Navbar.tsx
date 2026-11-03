@@ -4,18 +4,18 @@ import { Menu, X } from 'lucide-react'
 import { NAV_LINKS } from '../constants'
 import Logo from './Logo'
 
+/** Transparent over the hero card, then a white bar once the page scrolls. */
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
+  const [solid, setSolid] = useState(false)
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12)
+    const onScroll = () => setSolid(window.scrollY > window.innerHeight * 0.5)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Lock page scroll while the mobile drawer is open.
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
     return () => {
@@ -24,30 +24,24 @@ export default function Navbar() {
   }, [open])
 
   const close = () => setOpen(false)
+  const light = !solid && !open
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 border-b bg-paper/95 backdrop-blur transition-[border-color,box-shadow] duration-300 ${
-        scrolled ? 'border-line shadow-[0_1px_0_0_#E2E8F0]' : 'border-transparent'
+      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
+        light ? 'text-white' : 'bg-paper/95 text-ink shadow-[0_1px_0_0_#E2E8F0] backdrop-blur'
       }`}
     >
-      <nav
-        aria-label="Primary"
-        className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:h-20 lg:px-8"
-      >
+      <nav aria-label="Primary" className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8 lg:h-20 lg:px-10">
         <a href="#top" onClick={close} aria-label="Netwyn Place home" className="shrink-0">
-          <Logo wordmarkClassName="text-sm tracking-[0.25em]" />
+          <Logo wordmarkClassName="text-xs tracking-[0.2em] sm:text-sm" />
         </a>
 
-        <ul className="hidden items-center gap-7 lg:flex">
+        <ul className="hidden items-center gap-9 lg:flex">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
-              <a
-                href={link.href}
-                className="group relative py-2 text-xs font-semibold uppercase tracking-[0.15em] text-ink transition-colors hover:text-accent"
-              >
+              <a href={link.href} className="text-sm font-medium transition-opacity hover:opacity-70">
                 {link.label}
-                <span className="absolute inset-x-0 -bottom-0.5 h-[2px] origin-left scale-x-0 bg-accent transition-transform duration-300 group-hover:scale-x-100" />
               </a>
             </li>
           ))}
@@ -55,10 +49,12 @@ export default function Navbar() {
 
         <div className="flex items-center gap-3">
           <a
-            href="#contact"
-            className="hidden bg-accent px-5 py-3 text-xs font-bold uppercase tracking-[0.15em] text-white transition-colors duration-200 hover:bg-ink sm:inline-flex"
+            href="#footer-contact"
+            className={`hidden rounded-full px-5 py-2.5 text-sm font-medium transition-colors duration-300 sm:inline-flex ${
+              light ? 'bg-white text-ink hover:bg-accent hover:text-white' : 'bg-ink text-white hover:bg-accent'
+            }`}
           >
-            BOOK A TOUR
+            Contact us
           </a>
           <button
             type="button"
@@ -66,7 +62,9 @@ export default function Navbar() {
             aria-expanded={open}
             aria-controls="mobile-menu"
             onClick={() => setOpen((value) => !value)}
-            className="flex h-11 w-11 items-center justify-center border border-line text-ink lg:hidden"
+            className={`flex h-10 w-10 items-center justify-center rounded-full lg:hidden ${
+              light ? 'bg-white/15 text-white' : 'bg-canvas text-ink'
+            }`}
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -81,29 +79,24 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden border-t border-line bg-paper lg:hidden"
+            className="overflow-hidden bg-paper text-ink lg:hidden"
           >
-            <ul className="flex flex-col px-4 py-4 sm:px-6">
+            <ul className="flex flex-col px-5 py-2 sm:px-8">
               {NAV_LINKS.map((link) => (
                 <li key={link.href} className="border-b border-line last:border-b-0">
-                  <a
-                    href={link.href}
-                    onClick={close}
-                    className="flex items-center justify-between py-4 text-sm font-bold uppercase tracking-[0.15em] text-ink hover:text-accent"
-                  >
+                  <a href={link.href} onClick={close} className="block py-4 text-base font-medium">
                     {link.label}
-                    <span className="h-[2px] w-4 bg-accent" aria-hidden="true" />
                   </a>
                 </li>
               ))}
             </ul>
-            <div className="px-4 pb-6 sm:hidden sm:px-6">
+            <div className="px-5 pb-6 sm:px-8">
               <a
-                href="#contact"
+                href="#footer-contact"
                 onClick={close}
-                className="flex w-full items-center justify-center bg-accent py-4 text-xs font-bold uppercase tracking-[0.15em] text-white"
+                className="flex w-full items-center justify-center rounded-full bg-ink py-4 text-sm font-medium text-white"
               >
-                BOOK A TOUR
+                Contact us
               </a>
             </div>
           </motion.div>
