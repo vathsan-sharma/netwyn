@@ -1,7 +1,7 @@
 import { useState, type FormEvent, type ReactNode } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { ArrowRight, CheckCircle2, ChevronDown, Lock, Mail, MapPin, Pencil, Phone, User } from 'lucide-react'
-import { CONTACT, CONTACT_SECTION } from '../constants'
+import { CONTACT_SECTION } from '../constants'
 import { Reveal } from './shared'
 
 type FormState = {
@@ -81,13 +81,7 @@ export default function Contact() {
                         {card.value}
                       </a>
                     ) : (
-                      <address className="mt-1 not-italic text-base font-medium text-ink">
-                        {CONTACT.addressLines.map((line) => (
-                          <span key={line} className="block">
-                            {line}
-                          </span>
-                        ))}
-                      </address>
+                      <p className="mt-1 text-base font-medium text-ink">{card.value}</p>
                     )}
                   </div>
                 </li>

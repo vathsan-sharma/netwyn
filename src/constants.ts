@@ -74,21 +74,6 @@ export const HERO = {
   primaryCta: { label: 'EXPLORE SPACES', href: '#services' },
   secondaryCta: { label: 'SECURE AN OFFICE', href: '#contact' },
   scrollIndicator: 'SCROLL TO DISCOVER',
-  metrics: [
-    { value: '10,000', unit: 'SQ FT', label: 'Shared Space' },
-    { value: '100+', unit: '', label: 'Free Parking Spaces' },
-    { value: '1 Gbps', unit: '', label: 'Symmetric Fibre Wi-Fi' },
-  ],
-} as const
-
-/* ------------------------------------------------------------------ */
-/* Intro (lead copy, unchanged from wireframe build)                  */
-/* ------------------------------------------------------------------ */
-
-export const INTRO = {
-  lead: 'We provide everything you need to work, create, and grow in one place.',
-  statement:
-    'From private meeting rooms to open coworking areas and creator-ready spaces, we bring together everything you need for productive work in one modern environment.',
 } as const
 
 /* ------------------------------------------------------------------ */
@@ -379,46 +364,6 @@ export const SHOWCASE = {
 /* Why us & FAQ (unchanged from wireframe build)                       */
 /* ------------------------------------------------------------------ */
 
-export const WHY_US = [
-  {
-    title: 'Dedicated bandwidth',
-    description: 'Fibre you do not share with neighbours, built for calls, uploads and client demos.',
-  },
-  {
-    title: 'Minutes from Hwy 401',
-    description: 'Easy to reach from across the East GTA, with free parking when you arrive.',
-  },
-  {
-    title: 'Flexible membership',
-    description: 'Day passes, hot desks, dedicated desks and private offices, so you can scale as you grow.',
-  },
-  {
-    title: 'Real hospitality',
-    description: 'Dedicated on-site managers and a coffee and tea bar, so the team can focus on work.',
-  },
-] as const
-
-export const FAQS = [
-  {
-    question: 'What are your hours?',
-    answer:
-      'Day guests can use the space Monday to Friday, 8:00 AM to 6:00 PM. Dedicated members have 24/7/365 access.',
-  },
-  {
-    question: 'Is parking free?',
-    answer: 'Yes. We have 100+ free dedicated parking spots right in front of the building entrance.',
-  },
-  {
-    question: 'Do you offer day passes?',
-    answer:
-      'Yes. An 8-hour day pass includes open hot desk access, fast Wi-Fi, complimentary coffee and tea, and free parking.',
-  },
-  {
-    question: 'How do I book a tour?',
-    answer: `Call ${CONTACT.phone} or email ${CONTACT.email} and we will arrange a time that suits you.`,
-  },
-] as const
-
 /* ------------------------------------------------------------------ */
 /* Client voices                                                       */
 /* ------------------------------------------------------------------ */
@@ -536,14 +481,6 @@ export const CONTACT_SECTION = {
 /* ------------------------------------------------------------------ */
 
 export const FOOTER = {
-  description:
-    'A premium coworking and collaborative office hub on Thornmount Drive, minutes from Highway 401 in Scarborough.',
-  quickLinks: [
-    { label: 'Home', href: '#top' },
-    { label: 'About', href: '#about' },
-    { label: 'Services', href: '#services' },
-    { label: 'Contact', href: '#contact' },
-  ],
   social: [
     { label: 'LinkedIn', href: '#' },
     { label: 'Twitter', href: '#' },
@@ -552,10 +489,6 @@ export const FOOTER = {
   legal: [
     { label: 'Privacy', href: '#' },
     { label: 'Terms', href: '#' },
-  ],
-  hours: [
-    { label: 'Day guests', value: 'Mon–Fri, 8:00 AM – 6:00 PM' },
-    { label: 'Dedicated members', value: '24/7/365' },
   ],
   motto: 'Reduction is Sophistication',
 } as const
