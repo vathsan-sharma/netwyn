@@ -25,10 +25,13 @@ export default function Hero() {
         <div className="mx-auto flex min-h-[680px] max-w-7xl flex-col px-5 pb-8 pt-28 sm:px-8 sm:pb-10 lg:min-h-[780px] lg:px-10 lg:pt-32">
           <motion.h1
             {...rise(0.1)}
-            className="text-center font-sans text-[3.4rem] font-light leading-[0.9] tracking-[-0.04em] drop-shadow-[0_6px_30px_rgba(0,0,0,0.25)] sm:text-[6.5rem] lg:text-[9rem] xl:text-[10.5rem]"
+            className="text-center font-sans text-[3.4rem] font-light uppercase leading-[0.92] tracking-[-0.03em] drop-shadow-[0_6px_30px_rgba(0,0,0,0.25)] sm:text-[6.5rem] lg:text-[8rem] xl:text-[9.5rem]"
           >
-            {HERO.headline.replace(/\.$/, '')}
-            <span className="text-accent">.</span>
+            {HERO.headline.map((line) => (
+              <span key={line} className="block">
+                {line === 'EMPOWER' ? <span className="text-accent">{line}</span> : line}
+              </span>
+            ))}
           </motion.h1>
 
           <motion.div {...rise(0.25)} className="mt-auto flex flex-col gap-8 pt-16 lg:flex-row lg:items-end lg:justify-between">

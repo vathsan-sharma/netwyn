@@ -68,7 +68,7 @@ export const NAV_CTA = { label: 'JOIN TODAY', href: '#contact' } as const
 /* ------------------------------------------------------------------ */
 
 export const HERO = {
-  headline: 'SPACE TO GROW.',
+  headline: ['EDUCATE', 'EMPOWER', 'EXCEL.'],
   description:
     'A coworking space where ideas take shape, meaningful connections are built, and businesses thrive.',
   primaryCta: { label: 'EXPLORE SPACES', href: '#services' },
