@@ -68,17 +68,19 @@ export default function Hero() {
         <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-b from-black/50 via-black/25 to-black/70" />
 
         <div className="mx-auto flex min-h-[680px] max-w-7xl flex-col px-5 pb-8 pt-28 sm:px-8 sm:pb-10 lg:min-h-[780px] lg:px-10 lg:pt-32">
-          <motion.h1
-            {...rise(0.1)}
-            className="whitespace-nowrap text-center font-sans text-[clamp(1.4rem,6vw,7rem)] font-light uppercase leading-[1] tracking-[-0.02em] drop-shadow-[0_6px_30px_rgba(0,0,0,0.25)]"
-          >
-            {HERO.headline.map((word, index) => (
-              <span key={word}>
-                {index > 0 && ' '}
-                {word === 'EMPOWER' ? <span className="text-accent">{word}</span> : word}
-              </span>
-            ))}
-          </motion.h1>
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center px-5">
+            <motion.h1
+              {...rise(0.1)}
+              className="whitespace-nowrap text-center font-sans text-[clamp(1.4rem,6vw,7rem)] font-light uppercase leading-[1] tracking-[-0.02em] drop-shadow-[0_6px_30px_rgba(0,0,0,0.25)]"
+            >
+              {HERO.headline.map((word, index) => (
+                <span key={word}>
+                  {index > 0 && ' '}
+                  {word === 'EMPOWER' ? <span className="text-accent">{word}</span> : word}
+                </span>
+              ))}
+            </motion.h1>
+          </div>
 
           <motion.div {...rise(0.25)} className="mt-auto grid gap-6 pt-20 lg:grid-cols-2 lg:items-end">
             <div />
