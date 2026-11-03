@@ -282,6 +282,38 @@ export const MODULE_SERVICES: ModuleService[] = [
 ]
 
 /* ------------------------------------------------------------------ */
+/* Spaces (pricing section cards)                                      */
+/* ------------------------------------------------------------------ */
+
+export interface Space {
+  name: string
+  video: string
+  image: string
+  description: string
+}
+
+export const SPACES: Space[] = [
+  {
+    name: 'Event Space',
+    video: 'https://raw.githubusercontent.com/vathsan-sharma/netwyn-images/main/IMG_8838.mov',
+    image: 'https://picsum.photos/seed/netwyn-event/800/600',
+    description: 'A versatile space for large gatherings and presentations.',
+  },
+  {
+    name: 'Private Office',
+    video: 'https://raw.githubusercontent.com/vathsan-sharma/netwyn-images/main/IMG_8744.mov',
+    image: 'https://picsum.photos/seed/netwyn-office/800/600',
+    description: 'Quiet, professional environment for focused work.',
+  },
+  {
+    name: 'Boardroom',
+    video: 'https://raw.githubusercontent.com/vathsan-sharma/netwyn-images/main/IMG_8818.mov',
+    image: 'https://picsum.photos/seed/netwyn-boardroom/800/600',
+    description: 'Equipped with latest audio and video features.',
+  },
+]
+
+/* ------------------------------------------------------------------ */
 /* Showcase gallery                                                    */
 /* capacity / sqft values are PLACEHOLDERS: confirm before launch.     */
 /* ------------------------------------------------------------------ */

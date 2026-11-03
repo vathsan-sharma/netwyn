@@ -1,7 +1,12 @@
 import { motion } from 'motion/react'
 import { ArrowRight } from 'lucide-react'
-import { HERO, IMAGES } from '../constants'
-import { Photo } from './shared'
+import { HERO } from '../constants'
+import Video from './Video'
+
+const HERO_VIDEO = {
+  src: 'https://raw.githubusercontent.com/vathsan-sharma/netwyn-images/main/IMG_8746.mov',
+  poster: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1400&h=900',
+}
 
 const rise = (delay: number) => ({
   initial: { opacity: 0, y: 28 },
@@ -72,7 +77,17 @@ export default function Hero() {
           transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
           className="relative min-h-[320px] border border-line sm:min-h-[440px] lg:col-span-5 lg:min-h-[560px]"
         >
-          <Photo src={IMAGES.hero} alt="Sunlit open-plan coworking lounge" />
+          <Video
+            src={HERO_VIDEO.src}
+            poster={HERO_VIDEO.poster}
+            aria-label="Walkthrough of the sunlit Netwyn Place workspace"
+            className="h-full w-full object-cover object-center lg:object-[center_right]"
+          />
+          {/* Soft white fade on the text-facing edge */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-paper to-transparent"
+          />
           <div className="absolute -bottom-px -left-px bg-accent px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white">
             Scarborough, ON
           </div>

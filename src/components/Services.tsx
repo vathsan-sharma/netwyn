@@ -1,5 +1,6 @@
 import { Check } from 'lucide-react'
-import { MEMBERSHIP_PLANS, MODULE_SERVICES } from '../constants'
+import { MEMBERSHIP_PLANS, MODULE_SERVICES, SPACES } from '../constants'
+import Video from './Video'
 import { Reveal, SectionHeader } from './shared'
 
 export default function Services() {
@@ -62,6 +63,41 @@ export default function Services() {
               </article>
             </Reveal>
           ))}
+        </div>
+
+        {/* Spaces */}
+        <div className="mt-24">
+          <Reveal>
+            <h3 className="font-sans text-2xl font-black uppercase tracking-[-0.02em] text-ink sm:text-3xl">
+              Our Spaces
+              <span className="text-accent">.</span>
+            </h3>
+          </Reveal>
+          <div className="mt-10 grid gap-px border border-line bg-line md:grid-cols-3">
+            {SPACES.map((space, index) => (
+              <Reveal key={space.name} delay={index * 0.1} className="flex">
+                <article className="group relative flex w-full flex-col overflow-hidden bg-paper">
+                  <div className="relative aspect-[4/3] overflow-hidden bg-mist">
+                    <Video
+                      src={space.video}
+                      poster={space.image}
+                      aria-label={`${space.name} preview`}
+                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
+                    <span className="absolute left-4 top-4 bg-paper px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em] text-ink">
+                      {space.name}
+                    </span>
+                  </div>
+                  <div className="flex flex-1 flex-col gap-2 border-t border-line p-6">
+                    <h4 className="font-sans text-lg font-black uppercase tracking-[-0.01em] text-ink">
+                      {space.name}
+                    </h4>
+                    <p className="text-sm leading-relaxed text-muted">{space.description}</p>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
         </div>
 
         {/* Additional services & modules */}
