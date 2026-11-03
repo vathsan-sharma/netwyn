@@ -66,15 +66,15 @@ export const NAV_LINKS = [
 
 export const VIDEOS = {
   hero: {
-    src: 'https://raw.githubusercontent.com/vathsan-sharma/netwyn-images/main/IMG_8746.mov',
+    src: '/videos/IMG_8746.mov',
     poster: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1400&h=900',
   },
   features: {
-    src: 'https://raw.githubusercontent.com/vathsan-sharma/netwyn-images/main/IMG_8744.mov',
+    src: '/videos/IMG_8744.mov',
     poster: 'https://picsum.photos/seed/netwyn-office/800/600',
   },
   cta: {
-    src: 'https://raw.githubusercontent.com/vathsan-sharma/netwyn-images/main/IMG_8818.mov',
+    src: '/videos/IMG_8818.mov',
     poster: 'https://picsum.photos/seed/netwyn-boardroom/800/600',
   },
 } as const
@@ -376,19 +376,19 @@ export interface Space {
 export const SPACES: Space[] = [
   {
     name: 'Event Space',
-    video: 'https://raw.githubusercontent.com/vathsan-sharma/netwyn-images/main/IMG_8838.mov',
+    video: '/videos/IMG_8838.mov',
     image: 'https://picsum.photos/seed/netwyn-event/800/600',
     description: 'A versatile space for large gatherings and presentations.',
   },
   {
     name: 'Private Office',
-    video: 'https://raw.githubusercontent.com/vathsan-sharma/netwyn-images/main/IMG_8744.mov',
+    video: '/videos/IMG_8744.mov',
     image: 'https://picsum.photos/seed/netwyn-office/800/600',
     description: 'Quiet, professional environment for focused work.',
   },
   {
     name: 'Boardroom',
-    video: 'https://raw.githubusercontent.com/vathsan-sharma/netwyn-images/main/IMG_8818.mov',
+    video: '/videos/IMG_8818.mov',
     image: 'https://picsum.photos/seed/netwyn-boardroom/800/600',
     description: 'Equipped with latest audio and video features.',
   },
