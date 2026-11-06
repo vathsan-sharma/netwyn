@@ -28,20 +28,20 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${light ? 'px-3 pt-3 sm:px-5 sm:pt-5' : ''} ${
         light ? 'text-white' : 'bg-paper/95 text-ink shadow-[0_1px_0_0_#E2E8F0] backdrop-blur'
       }`}
     >
       <nav aria-label="Primary" className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8 lg:h-20 lg:px-10">
         <a href="#top" onClick={close} aria-label="Netwyn Place home" className="shrink-0">
-          <Logo wordmarkClassName="text-xs tracking-[0.2em] sm:text-sm" />
+          <Logo className="h-7 sm:h-8" />
           <span className="sr-only">Netwyn Place</span>
         </a>
 
         <ul className="hidden items-center gap-9 lg:flex">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
-              <a href={link.href} className="text-sm font-medium transition-opacity hover:opacity-70">
+              <a href={link.href} className="text-base font-medium transition-opacity hover:opacity-70">
                 {link.label}
               </a>
             </li>
@@ -58,7 +58,7 @@ export default function Navbar() {
           </a>
           <a
             href={NAV_CTA.href}
-            className={`hidden rounded-full px-5 py-2.5 text-sm font-medium transition-colors duration-300 sm:inline-flex ${
+            className={`hidden animate-glow rounded-full px-5 py-2.5 text-sm font-medium transition-colors duration-300 sm:inline-flex ${
               light ? 'bg-white text-ink hover:bg-accent hover:text-white' : 'bg-ink text-white hover:bg-accent'
             }`}
           >

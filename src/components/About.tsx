@@ -24,7 +24,7 @@ export default function About() {
 
           <h2 className="mt-12 font-sans text-4xl font-normal uppercase leading-[1.02] tracking-[-0.03em] sm:text-5xl">
             {ABOUT.headline.replace(/\.$/, '')}
-            <span className="text-accent">.</span>
+            <span className="inline-block animate-dot-pulse text-accent">.</span>
           </h2>
 
           <div className="mt-8 space-y-5">

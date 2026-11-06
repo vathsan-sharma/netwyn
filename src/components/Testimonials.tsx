@@ -19,7 +19,7 @@ export default function Testimonials() {
         <Reveal>
           <h2 className="font-sans text-4xl font-normal uppercase tracking-[-0.03em] text-ink sm:text-5xl">
             {CLIENT_VOICES.heading.replace(/\.$/, '')}
-            <span className="text-accent">.</span>
+            <span className="inline-block animate-dot-pulse text-accent">.</span>
           </h2>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">{CLIENT_VOICES.description}</p>
         </Reveal>
@@ -31,7 +31,7 @@ export default function Testimonials() {
             key={item.name}
             className="m-0 flex w-[84%] shrink-0 snap-start flex-col rounded-3xl bg-paper p-8 sm:w-[46%] lg:w-[36%] lg:p-10"
           >
-            <Quote className="h-7 w-7 text-accent" strokeWidth={1.5} aria-hidden="true" />
+            <Quote className="h-7 w-7 animate-icon-float text-accent" strokeWidth={1.5} aria-hidden="true" />
             <blockquote className="mt-6 flex-1">
               <p className="font-serif text-base italic leading-relaxed text-ink sm:text-lg">&ldquo;{item.quote}&rdquo;</p>
             </blockquote>
@@ -44,7 +44,6 @@ export default function Testimonials() {
               </span>
               <div>
                 <p className="text-sm font-medium text-ink">{item.name}</p>
-                <p className="mt-0.5 text-xs text-muted">{item.role}</p>
               </div>
             </figcaption>
           </figure>

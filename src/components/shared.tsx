@@ -10,7 +10,7 @@ export function Headline({ text, className = '' }: { text: string; className?: s
       className={`font-sans text-4xl font-black uppercase leading-[0.95] tracking-[-0.03em] text-ink sm:text-5xl lg:text-6xl ${className}`}
     >
       {body}
-      {hasDot && <span className="text-accent">.</span>}
+      {hasDot && <span className="inline-block animate-dot-pulse text-accent">.</span>}
     </h2>
   )
 }

@@ -16,7 +16,7 @@ export default function MediaShowcase() {
         <Reveal>
           <h2 className="font-sans text-4xl font-normal uppercase leading-[1.02] tracking-[-0.03em] sm:text-5xl">
             {SHOWCASE.heading.replace(/\.$/, '')}
-            <span className="text-accent">.</span>
+            <span className="inline-block animate-dot-pulse text-accent">.</span>
           </h2>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/65 sm:text-lg">{SHOWCASE.description}</p>
         </Reveal>
@@ -49,11 +49,13 @@ export default function MediaShowcase() {
               poster={clip.posterUrl}
               muted={muted}
               aria-label={clip.tab}
-              className="h-full w-full object-cover"
+              className={`h-full w-full ${'fit' in clip ? 'object-contain' : 'object-cover'}`}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-transparent to-transparent" aria-hidden="true" />
             <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-10">
-              <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-accent">{clip.tag}</span>
+              {clip.tag && (
+                <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-accent">{clip.tag}</span>
+              )}
               <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/85 sm:text-base">{clip.description}</p>
             </div>
             <button

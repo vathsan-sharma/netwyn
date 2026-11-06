@@ -158,6 +158,7 @@ export const SERVICES = {
   heading: 'PRICING PLANS.',
   description:
     'Choose the membership that best fits your business, then customise your experience with additional services whenever you need them.',
+  membership: 'Membership: $499+ Tax. Annual membership is required for most services below.',
 } as const
 
 export interface Space {
@@ -192,56 +193,67 @@ export interface MembershipPlan {
   name: string
   price: string
   priceUnit: string
+  from?: boolean
   featured?: boolean
   features: string[]
 }
 
 export const MEMBERSHIP_PLANS: MembershipPlan[] = [
   {
+    name: 'Virtual Office',
+    price: '$247',
+    priceUnit: 'CAD / mo',
+    from: true,
+    features: [
+      'Unlimited Internet',
+      'Use of Business Address',
+      'Mail & Parcel Handling',
+      'Telephone Answering & Message Forwarding',
+      'Hot Desk or Board Room Access (2 hrs/mo)',
+    ],
+  },
+  {
     name: 'Hot Desk',
     price: '$397',
     priceUnit: 'CAD / mo',
+    from: true,
     features: [
       'Unlimited Internet',
-      'Business Address',
+      'Use of Business Address',
       'Mail & Parcel Handling',
       'Telephone Answering',
       'Message Forwarding',
-      'Boardroom Access (3 hrs/mo)',
+      'Board Room Access (3 hrs/mo)',
     ],
   },
   {
     name: 'Dedicated Desk',
     price: '$547',
     priceUnit: 'CAD / mo',
+    from: true,
     featured: true,
     features: [
-      'Everything in Hot Desk',
-      'Dedicated Reserved Spot',
-      'Boardroom Access (5 hrs/mo)',
+      'Unlimited Internet',
+      'Use of Business Address',
+      'Mail & Parcel Handling',
+      'Telephone Answering',
+      'Message Forwarding',
+      'Board Room Access (5 hrs/mo)',
     ],
   },
   {
     name: 'Private Office Room',
     price: '$987',
     priceUnit: 'CAD / mo',
+    from: true,
     features: [
-      'Everything in Dedicated Desk',
-      'Private Locked Office',
-      'Boardroom Access (7 hrs/mo)',
-      '24/7/365 Access',
-    ],
-  },
-  {
-    name: 'Virtual Office',
-    price: '$247',
-    priceUnit: 'CAD / mo',
-    features: [
-      'Business Address',
+      'Unlimited Internet',
+      'Use of Business Address',
       'Mail & Parcel Handling',
       'Telephone Answering',
       'Message Forwarding',
-      'Hot Desk or Boardroom Access (2 hrs/mo)',
+      'Board Room Access (7 hrs/mo)',
+      'Dedicated Room or Co-working Space (24/7/365 Access)',
     ],
   },
 ]
@@ -256,6 +268,7 @@ export interface ModuleService {
   name: string
   price: string
   priceUnit: string
+  from?: boolean
   features: string[]
 }
 
@@ -263,67 +276,51 @@ export const MODULE_SERVICES: ModuleService[] = [
   {
     name: 'Day Pass',
     price: '$27',
-    priceUnit: 'CAD / 8 hrs',
-    features: [
-      'Full Day Open Hot Desk Access',
-      'Super Fast Wi-Fi & Lounge Access',
-      'Complimentary Coffee & Tea',
-      'Quiet Phone Booths & Free Parking',
-    ],
+    priceUnit: 'CAD / 8 hrs + Membership',
+    features: ['Unlimited Internet', 'Use of Co-working Space', 'Complimentary Coffee/Tea'],
   },
   {
     name: 'Mailing Address',
     price: '$47',
     priceUnit: 'CAD / mo',
-    features: [
-      'Prestigious Business Mailing Address',
-      'Secure Mail & Parcel Reception',
-      'Immediate Delivery Notifications',
-      'Easy Pickup During Business Hours',
-    ],
+    features: ['Use of Business Address', 'Mail Handling & Parcel Handling'],
   },
   {
     name: 'Private Meeting Room',
-    price: '$25.50',
-    priceUnit: 'CAD / hr',
-    features: [
-      'Seating for 4 to 6 Attendees',
-      'High-Definition Screen & HDMI Setup',
-      'Super Fast Wi-Fi & Whiteboard',
-      'Complimentary Refreshments & Parking',
-    ],
+    price: '$22.50',
+    priceUnit: 'CAD / hr or $100 / day',
+    features: ['Unlimited Internet', 'Complimentary Coffee/Tea'],
   },
   {
-    name: 'General Meeting Space',
-    price: '$175',
-    priceUnit: 'CAD / hr',
-    features: [
-      'Spacious Open Multi-Use Layout',
-      'Ideal for Workshops & Seminars',
-      'Integrated AV & Microphone System',
-      'On-Site Coordinator Support',
-    ],
+    name: 'Board Room',
+    price: '$40',
+    priceUnit: 'CAD / hr or $300 / 8 hrs',
+    features: ['Unlimited Internet', 'Conference Calls'],
   },
   {
     name: 'Training Room',
     price: '$180',
-    priceUnit: 'CAD / hr',
-    features: [
-      'Flexible Classroom or Pod Seating',
-      'High-Lumen Projector & Sound System',
-      'Whiteboards & Marker Sets Included',
-      'High-Speed Multi-Device Bandwidth',
-    ],
+    priceUnit: 'CAD / hr or $750 / day',
+    from: true,
+    features: ['Unlimited Internet', 'Use of Common Facilities'],
   },
   {
-    name: 'Conference Room + Event Space',
+    name: 'General Meeting Space',
+    price: '$175',
+    priceUnit: 'CAD / hr + Membership',
+    from: true,
+    features: ['Unlimited Internet', 'Use of Common Facilities', 'Complimentary Coffee/Tea'],
+  },
+  {
+    name: 'Conference Room + General Meeting Space',
     price: '$1,400',
     priceUnit: 'CAD / day',
+    from: true,
     features: [
-      'Exclusive Full-Day Space Access',
-      'Accommodates Large Corporate Events',
-      'Comprehensive AV & Production Tech',
-      'Ample Free Parking for All Guests',
+      'Mandatory Membership',
+      'Unlimited Internet',
+      'Use of Common Facilities',
+      'Complimentary Coffee/Tea',
     ],
   },
 ]
@@ -350,12 +347,21 @@ export const SHOWCASE = {
     {
       id: 'lounge',
       tab: 'THE WORKPLACE ATMO',
-      tag: 'ATMOSPHERE • COLLABORATIVE',
+      tag: '',
       description:
         'Witness the natural light, the curated coffee-fueled lounges, and the collaborative synergy of our community.',
       videoUrl: '/videos/IMG_8744.mov',
       posterUrl:
         'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=1200&h=675',
+    },
+    {
+      id: 'entrance',
+      tab: 'THE ENTRANCE',
+      tag: 'ENTRANCE • FIRST IMPRESSION',
+      fit: 'contain',
+      description: 'Step inside through our welcoming entrance, featuring the Netwyn.Place brand wall.',
+      videoUrl: '/videos/IMG_6608.mov',
+      posterUrl: 'https://picsum.photos/seed/netwyn-entrance/1200/675',
     },
   ],
 } as const
@@ -483,7 +489,7 @@ export const CONTACT_SECTION = {
 export const FOOTER = {
   social: [
     { label: 'LinkedIn', href: '#' },
-    { label: 'Twitter', href: '#' },
+    { label: 'Facebook', href: '#' },
     { label: 'Instagram', href: '#' },
   ],
   legal: [

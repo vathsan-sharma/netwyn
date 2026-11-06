@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl rounded-[28px] bg-paper px-6 py-14 sm:rounded-[36px] sm:px-10 lg:px-14 lg:py-16">
         <div className="grid gap-12 sm:grid-cols-2">
           <div>
-            <Logo wordmarkClassName="text-sm tracking-[0.25em]" />
+            <Logo className="h-9" />
           </div>
           <div className="grid grid-cols-2 gap-8">
             <div>

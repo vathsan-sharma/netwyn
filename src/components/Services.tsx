@@ -11,9 +11,10 @@ export default function Services() {
         <Reveal>
           <h2 className="font-sans text-4xl font-normal uppercase tracking-[-0.03em] text-ink sm:text-5xl">
             {SERVICES.heading.replace(/\.$/, '')}
-            <span className="text-accent">.</span>
+            <span className="inline-block animate-dot-pulse text-accent">.</span>
           </h2>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">{SERVICES.description}</p>
+          <p className="mt-3 text-sm font-medium text-ink">{SERVICES.membership}</p>
         </Reveal>
 
         {/* Physical space highlights */}
@@ -57,12 +58,13 @@ export default function Services() {
                   }`}
                 >
                   {plan.featured && (
-                    <span className="absolute right-6 top-6 rounded-full bg-accent px-3 py-1 text-[10px] font-medium uppercase tracking-[0.14em] text-white">
+                    <span className="absolute right-6 top-6 animate-glow rounded-full bg-accent px-3 py-1 text-[10px] font-medium uppercase tracking-[0.14em] text-white">
                       Most Popular
                     </span>
                   )}
                   <h3 className="font-sans text-lg font-medium">{plan.name}</h3>
                   <p className="mt-6 flex items-baseline gap-2">
+                    {plan.from && <span className={`text-xs font-medium uppercase tracking-[0.1em] ${plan.featured ? 'text-white/60' : 'text-muted'}`}>From</span>}
                     <span className="font-sans text-4xl font-normal tracking-[-0.03em]">{plan.price}</span>
                     <span className={`text-xs font-medium uppercase tracking-[0.1em] ${plan.featured ? 'text-white/60' : 'text-muted'}`}>
                       {plan.priceUnit}
@@ -104,6 +106,7 @@ export default function Services() {
                 <li className="flex w-full flex-col rounded-3xl bg-canvas p-8">
                   <h4 className="font-sans text-lg font-medium text-ink">{service.name}</h4>
                   <p className="mt-5 flex items-baseline gap-2">
+                    {service.from && <span className="text-xs font-medium uppercase tracking-[0.1em] text-muted">From</span>}
                     <span className="font-sans text-3xl font-normal tracking-[-0.02em] text-ink">{service.price}</span>
                     <span className="text-xs font-medium uppercase tracking-[0.1em] text-accent">{service.priceUnit}</span>
                   </p>

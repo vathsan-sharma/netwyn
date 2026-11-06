@@ -56,13 +56,9 @@ export default function Contact() {
     <section id="contact" className="scroll-mt-24 bg-canvas px-3 py-24 sm:px-5 lg:py-32">
       <div className="mx-auto grid max-w-7xl gap-14 px-2 sm:px-5 lg:grid-cols-12 lg:gap-12 lg:px-8">
         <Reveal className="lg:col-span-5">
-          <div className="flex items-center gap-3">
-            <span className="h-[2px] w-10 bg-accent" aria-hidden="true" />
-            <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted">{CONTACT_SECTION.eyebrow}</span>
-          </div>
-          <h2 className="mt-8 font-sans text-4xl font-normal uppercase tracking-[-0.03em] text-ink sm:text-5xl">
+          <h2 className="font-sans text-4xl font-normal uppercase tracking-[-0.03em] text-ink sm:text-5xl">
             {CONTACT_SECTION.heading.replace(/\.$/, '')}
-            <span className="text-accent">.</span>
+            <span className="inline-block animate-dot-pulse text-accent">.</span>
           </h2>
           <p className="mt-6 max-w-md text-base leading-relaxed text-muted">{CONTACT_SECTION.description}</p>
 

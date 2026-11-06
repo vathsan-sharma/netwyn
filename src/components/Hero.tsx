@@ -26,12 +26,16 @@ export default function Hero() {
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center px-5">
             <motion.h1
               {...rise(0.1)}
-              className="whitespace-nowrap text-center font-sans text-[clamp(1.4rem,6vw,7rem)] font-light uppercase leading-[1] tracking-[-0.02em] drop-shadow-[0_6px_30px_rgba(0,0,0,0.25)]"
+              className="whitespace-nowrap text-center font-sans text-[clamp(1.4rem,6vw,7rem)] font-semibold uppercase leading-[1] tracking-[-0.01em] drop-shadow-[0_4px_24px_rgba(0,0,0,0.55)]"
             >
               {HERO.headline.map((word, index) => (
-                <span key={word}>
-                  {index > 0 && ' '}
-                  {word === 'EMPOWER' ? <span className="text-accent">{word}</span> : word}
+                <span key={word} className={`inline-block overflow-hidden align-top ${index > 0 ? 'ml-[0.25em]' : ''}`}>
+                  <span
+                    className="inline-block animate-word-reveal"
+                    style={{ animationDelay: `${0.2 + index * 0.15}s` }}
+                  >
+                    {word === 'EMPOWER' ? <span className="text-accent">{word}</span> : word}
+                  </span>
                 </span>
               ))}
             </motion.h1>
@@ -47,7 +51,7 @@ export default function Hero() {
                 className="group inline-flex items-center justify-center gap-2 rounded-full bg-paper px-7 py-4 text-sm font-medium text-ink transition-colors duration-300 hover:bg-accent hover:text-white"
               >
                 {HERO.primaryCta.label}
-                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
+                <ArrowRight className="h-4 w-4 animate-nudge transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
               </a>
               <a
                 href={HERO.secondaryCta.href}
