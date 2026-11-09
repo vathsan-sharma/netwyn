@@ -8,10 +8,6 @@ export default function About() {
     <section id="about" className="scroll-mt-24 bg-charcoal py-24 text-white lg:py-32">
       <div className="mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-12 lg:gap-16 lg:px-10">
         <Reveal className="lg:col-span-6">
-          <div className="flex items-center gap-3">
-            <span className="h-[2px] w-10 bg-accent" aria-hidden="true" />
-            <span className="text-[11px] font-normal uppercase tracking-[0.22em] text-white/60">{ABOUT.eyebrow}</span>
-          </div>
 
           <div className="mt-10 flex items-end gap-5">
             <span className="font-sans text-7xl font-light leading-none tracking-[-0.04em] text-accent sm:text-8xl">

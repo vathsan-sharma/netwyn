@@ -1,4 +1,5 @@
-import { Quote } from 'lucide-react'
+import { useRef } from 'react'
+import { ChevronLeft, ChevronRight, Quote } from 'lucide-react'
 import { CLIENT_VOICES, TESTIMONIALS } from '../constants'
 import { Reveal } from './shared'
 
@@ -13,6 +14,16 @@ function initials(name: string) {
 
 /** Client voices: a horizontal, swipeable row of rounded review cards. */
 export default function Testimonials() {
+  const trackRef = useRef<HTMLDivElement>(null)
+
+  const scrollByCard = (direction: 1 | -1) => {
+    const track = trackRef.current
+    if (!track) return
+    const card = track.querySelector('figure')
+    const step = card ? card.getBoundingClientRect().width + 16 : track.clientWidth * 0.8
+    track.scrollBy({ left: direction * step, behavior: 'smooth' })
+  }
+
   return (
     <section id="reviews" className="pb-24 lg:pb-32">
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
@@ -23,9 +34,28 @@ export default function Testimonials() {
           </h2>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">{CLIENT_VOICES.description}</p>
         </Reveal>
+
+        <div className="mt-10 flex justify-end gap-3">
+          <button
+            type="button"
+            onClick={() => scrollByCard(-1)}
+            aria-label="Previous review"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-line bg-paper text-ink transition-colors duration-300 hover:border-accent hover:bg-accent hover:text-white"
+          >
+            <ChevronLeft className="h-5 w-5" aria-hidden="true" />
+          </button>
+          <button
+            type="button"
+            onClick={() => scrollByCard(1)}
+            aria-label="Next review"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-line bg-paper text-ink transition-colors duration-300 hover:border-accent hover:bg-accent hover:text-white"
+          >
+            <ChevronRight className="h-5 w-5" aria-hidden="true" />
+          </button>
+        </div>
       </div>
 
-      <div className="mt-12 flex snap-x snap-mandatory scroll-px-5 gap-4 overflow-x-auto px-5 pb-4 [scrollbar-width:none] sm:scroll-px-8 sm:px-8 lg:scroll-px-10 lg:px-[max(2.5rem,calc((100vw-80rem)/2+2.5rem))] [&::-webkit-scrollbar]:hidden">
+      <div ref={trackRef} className="mt-8 flex snap-x snap-mandatory scroll-px-5 gap-4 overflow-x-auto px-5 pb-4 [scrollbar-width:none] sm:scroll-px-8 sm:px-8 lg:scroll-px-10 lg:px-[max(2.5rem,calc((100vw-80rem)/2+2.5rem))] [&::-webkit-scrollbar]:hidden">
         {TESTIMONIALS.map((item) => (
           <figure
             key={item.name}

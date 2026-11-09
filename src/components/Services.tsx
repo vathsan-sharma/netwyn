@@ -14,7 +14,18 @@ export default function Services() {
             <span className="inline-block animate-dot-pulse text-accent">.</span>
           </h2>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">{SERVICES.description}</p>
-          <p className="mt-3 text-sm font-medium text-ink">{SERVICES.membership}</p>
+          <div className="mt-10 flex flex-col gap-6 overflow-hidden rounded-[28px] bg-ink p-7 text-white sm:flex-row sm:items-center sm:justify-between sm:p-10">
+            <div>
+              <p className="flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.22em] text-accent">
+                <span className="h-[2px] w-8 bg-accent" aria-hidden="true" />
+                {SERVICES.membership.label}
+              </p>
+              <p className="mt-4 flex items-baseline gap-3">
+                <span className="font-sans text-6xl font-light tracking-[-0.04em] sm:text-7xl">{SERVICES.membership.price}</span>
+                <span className="font-sans text-lg font-medium text-white/70">{SERVICES.membership.tax}</span>
+              </p>
+            </div>
+          </div>
         </Reveal>
 
         {/* Physical space highlights */}

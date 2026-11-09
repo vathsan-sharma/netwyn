@@ -38,15 +38,15 @@ export const CONTACT = {
 export const VIDEOS = {
   hero: {
     src: '/videos/IMG_8746.mov',
-    poster: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1400&h=900',
+    poster: '/posters/IMG_8746.jpg',
   },
   about: {
     src: '/videos/IMG_8744.mov',
-    poster: 'https://picsum.photos/seed/netwyn-office/800/600',
+    poster: '/posters/IMG_8744.jpg',
   },
   cta: {
     src: '/videos/IMG_8818.mov',
-    poster: 'https://picsum.photos/seed/netwyn-boardroom/800/600',
+    poster: '/posters/IMG_8818.jpg',
   },
 } as const
 
@@ -158,7 +158,11 @@ export const SERVICES = {
   heading: 'PRICING PLANS.',
   description:
     'Choose the membership that best fits your business, then customise your experience with additional services whenever you need them.',
-  membership: 'Membership: $499+ Tax. Annual membership is required for most services below.',
+  membership: {
+    label: 'Annual Membership',
+    price: '$499+',
+    tax: '+ Tax',
+  },
 } as const
 
 export interface Space {
@@ -172,19 +176,19 @@ export const SPACES: Space[] = [
   {
     name: 'Event Space',
     video: '/videos/IMG_8838.mov',
-    image: 'https://picsum.photos/seed/netwyn-event/800/600',
+    image: '/posters/IMG_8838.jpg',
     description: 'A versatile space for large gatherings and presentations.',
   },
   {
     name: 'Private Office',
     video: '/videos/IMG_8744.mov',
-    image: 'https://picsum.photos/seed/netwyn-office/800/600',
+    image: '/posters/IMG_8744.jpg',
     description: 'Quiet, professional environment for focused work.',
   },
   {
     name: 'Boardroom',
     video: '/videos/IMG_8818.mov',
-    image: 'https://picsum.photos/seed/netwyn-boardroom/800/600',
+    image: '/posters/IMG_8818.jpg',
     description: 'Equipped with latest audio and video features.',
   },
 ]
@@ -342,7 +346,7 @@ export const SHOWCASE = {
         'A complete guided walk through of our 10,000 sq. ft. high-performance environment in Scarborough.',
       videoUrl: '/videos/IMG_8746.mov',
       posterUrl:
-        'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200&h=675',
+        '/posters/IMG_8746.jpg',
     },
     {
       id: 'lounge',
@@ -352,7 +356,7 @@ export const SHOWCASE = {
         'Witness the natural light, the curated coffee-fueled lounges, and the collaborative synergy of our community.',
       videoUrl: '/videos/IMG_8744.mov',
       posterUrl:
-        'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=1200&h=675',
+        '/posters/IMG_8744.jpg',
     },
     {
       id: 'entrance',
@@ -361,7 +365,7 @@ export const SHOWCASE = {
       fit: 'contain',
       description: 'Step inside through our welcoming entrance, featuring the Netwyn.Place brand wall.',
       videoUrl: '/videos/IMG_6608.mov',
-      posterUrl: 'https://picsum.photos/seed/netwyn-entrance/1200/675',
+      posterUrl: '/posters/IMG_6608.jpg',
     },
   ],
 } as const
@@ -488,7 +492,6 @@ export const CONTACT_SECTION = {
 
 export const FOOTER = {
   social: [
-    { label: 'LinkedIn', href: '#' },
     { label: 'Facebook', href: '#' },
     { label: 'Instagram', href: '#' },
   ],
