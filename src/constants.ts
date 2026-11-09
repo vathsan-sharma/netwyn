@@ -162,6 +162,12 @@ export const SERVICES = {
     label: 'Annual Membership',
     price: '$499+',
     tax: '+ Tax',
+    benefits: [
+      'Unlimited Internet',
+      'Use of Common Facilities',
+      'Complimentary Coffee/Tea',
+      'Use of Co-working Space',
+    ],
   },
 } as const
 

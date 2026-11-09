@@ -102,6 +102,14 @@ export default function Services() {
                 <span className="font-sans text-lg font-medium text-white/70">{SERVICES.membership.tax}</span>
               </p>
             </div>
+            <ul className="grid gap-3 sm:grid-cols-2 sm:gap-x-10">
+              {SERVICES.membership.benefits.map((benefit) => (
+                <li key={benefit} className="flex items-center gap-3 text-sm text-white/85">
+                  <Check className="h-4 w-4 shrink-0 text-accent" strokeWidth={2.5} aria-hidden="true" />
+                  {benefit}
+                </li>
+              ))}
+            </ul>
           </div>
 
         {/* Additional services & modules */}
