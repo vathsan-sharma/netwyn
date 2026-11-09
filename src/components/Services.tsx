@@ -111,7 +111,7 @@ export default function Services() {
             </h3>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">{ADDITIONAL_SERVICES.description}</p>
           </Reveal>
-          <ul className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          <ul className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {MODULE_SERVICES.map((service, index) => (
               <Reveal key={service.name} delay={(index % 3) * 0.06} className="flex">
                 <li className="flex w-full flex-col rounded-3xl bg-canvas p-8">
