@@ -498,8 +498,8 @@ export const CONTACT_SECTION = {
 
 export const FOOTER = {
   social: [
-    { label: 'Facebook', href: '#' },
-    { label: 'Instagram', href: '#' },
+    { label: 'Facebook', href: 'https://www.facebook.com/share/1A3oJgKYsr/' },
+    { label: 'Instagram', href: 'https://www.instagram.com/netwyn.place' },
   ],
   legal: [
     { label: 'Privacy', href: '#' },
