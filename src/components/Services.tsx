@@ -1,10 +1,12 @@
 import { ArrowRight, Check } from 'lucide-react'
-import { ADDITIONAL_SERVICES, MEMBERSHIP_PLANS, MODULE_SERVICES, SERVICES, SPACES } from '../constants'
+import { ADDITIONAL_SERVICES, SERVICES, SPACES } from '../constants'
+import { usePricing } from '../lib/pricing'
 import Video from './Video'
 import { Reveal } from './shared'
 
 /** Services: physical spaces, monthly membership plans, and additional services and modules. */
 export default function Services() {
+  const pricing = usePricing()
   return (
     <section id="services" className="scroll-mt-24 bg-paper px-3 py-24 sm:px-5 lg:py-32">
       <div className="mx-auto max-w-7xl">
@@ -49,7 +51,7 @@ export default function Services() {
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted">Monthly Membership Plans</p>
           </Reveal>
           <ul className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {MEMBERSHIP_PLANS.map((plan, index) => (
+            {pricing.plans.map((plan, index) => (
               <Reveal key={plan.name} delay={index * 0.08} className="flex">
                 <li
                   className={`relative flex w-full flex-col rounded-3xl p-8 ${
@@ -95,15 +97,15 @@ export default function Services() {
             <div>
               <p className="flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.22em] text-accent">
                 <span className="h-[2px] w-8 bg-accent" aria-hidden="true" />
-                {SERVICES.membership.label}
+                {pricing.membership.label}
               </p>
               <p className="mt-4 flex items-baseline gap-3">
-                <span className="font-sans text-6xl font-light tracking-[-0.04em] sm:text-7xl">{SERVICES.membership.price}</span>
-                <span className="font-sans text-lg font-medium text-white/70">{SERVICES.membership.tax}</span>
+                <span className="font-sans text-6xl font-light tracking-[-0.04em] sm:text-7xl">{pricing.membership.price}</span>
+                <span className="font-sans text-lg font-medium text-white/70">{pricing.membership.tax}</span>
               </p>
             </div>
             <ul className="grid gap-3 sm:grid-cols-2 sm:gap-x-10">
-              {SERVICES.membership.benefits.map((benefit) => (
+              {pricing.membership.benefits.map((benefit) => (
                 <li key={benefit} className="flex items-center gap-3 text-sm text-white/85">
                   <Check className="h-4 w-4 shrink-0 text-accent" strokeWidth={2.5} aria-hidden="true" />
                   {benefit}
@@ -121,7 +123,7 @@ export default function Services() {
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">{ADDITIONAL_SERVICES.description}</p>
           </Reveal>
           <ul className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            {MODULE_SERVICES.map((service, index) => (
+            {pricing.modules.map((service, index) => (
               <Reveal key={service.name} delay={(index % 3) * 0.06} className="flex">
                 <li className="flex w-full flex-col rounded-3xl bg-canvas p-8">
                   <h4 className="font-sans text-lg font-medium text-ink">{service.name}</h4>

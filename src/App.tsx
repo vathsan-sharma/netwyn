@@ -1,3 +1,4 @@
+import Admin from './admin/Admin'
 import About from './components/About'
 import Amenities from './components/Amenities'
 import Contact from './components/Contact'
@@ -12,6 +13,8 @@ import Services from './components/Services'
 import Testimonials from './components/Testimonials'
 
 export default function App() {
+  if (window.location.pathname.startsWith('/admin')) return <Admin />
+
   return (
     <>
       <ProgressBar />
