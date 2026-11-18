@@ -1,6 +1,6 @@
 import { put, list } from '@vercel/blob'
-import { currentAdmin } from '../server/auth'
-import { validatePricing } from '../src/lib/pricing-types'
+import { currentAdmin } from '../server/auth.js'
+import { validatePricing } from '../src/lib/pricing-types.js'
 
 const FILE = 'pricing.json'
 

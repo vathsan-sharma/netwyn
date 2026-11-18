@@ -1,4 +1,4 @@
-import { currentAdmin } from '../../server/auth'
+import { currentAdmin } from '../../server/auth.js'
 
 type Res = { status: (code: number) => Res; json: (body: unknown) => void }
 type Req = { headers: { cookie?: string } }

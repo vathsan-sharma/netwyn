@@ -1,4 +1,4 @@
-import { checkCredentials, sessionCookie, signSession } from '../../server/auth'
+import { checkCredentials, sessionCookie, signSession } from '../../server/auth.js'
 
 type Res = {
   status: (code: number) => Res

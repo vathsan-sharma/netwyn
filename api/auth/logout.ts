@@ -1,4 +1,4 @@
-import { clearCookie } from '../../server/auth'
+import { clearCookie } from '../../server/auth.js'
 
 type Res = {
   status: (code: number) => Res
